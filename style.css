@@ -1,0 +1,47 @@
+﻿body {
+	margin:0;
+	padding:0;
+	background:black;
+	color:rgb(220,220,220);
+	font-family:verdana;
+}
+.logo {
+	position:relative;
+	padding-top:20px;
+	padding-left:20px;
+}
+h1 {
+	margin:0;
+	padding:0;
+	font-weight:normal;
+	letter-spacing:2px;
+	font-size:20px;
+}
+p {
+	margin:0;
+	font-size:12px;
+	letter-spacing:2px;
+	padding-bottom:20px;
+	padding-top:10px;
+}
+.logo a {
+	position:absolute;
+	color: rgb(80,80,85);
+	top:30px;
+	right:30px;
+	font-size:25px;
+	transition:0.5s;
+}
+.logo a:hover {color:rgb(220,220,220)}
+.layout {
+	position:relative;
+	width:99%;
+	margin:auto;
+	border-top:4px solid rgb(80,80,85);
+}
+#canvas {
+	width:100%;
+	max-width:1100px;
+	margin:auto;
+	background: black url('https://photoshop-master.ru/adds/adds273/1.jpg');
+}
