@@ -3,11 +3,85 @@ var ctx = canvas.getContext('2d');
 
 var sunRadius = 50;
 var lineColor = 'rgba(180,180,180,0.3)';
+var lineColorSelected = 'rgb(240,240,240)';
+var mercuryColor = lineColor; var venusColor = lineColor; var earthColor = lineColor; var marsColor = lineColor; var jupiterColor = lineColor; var saturnColor = lineColor; var uranusColor = lineColor; var neptuneColor = lineColor;
 
 var radialgradient = ctx.createRadialGradient(canvas.width/2, canvas.height/2, 50, canvas.width/2, canvas.height/2, 10);
 radialgradient.addColorStop(0,'yellow');
 radialgradient.addColorStop(0.2, 'yellow');
 radialgradient.addColorStop(1, 'white');
+
+//click on planet buttons
+var panel = document.getElementById('panel');
+function getPlanetOrbit(event) {
+	var target = event.target;
+		
+	//getting button style background
+	var targetStyle = getComputedStyle(target);
+    if (targetStyle.backgroundColor == 'rgb(220, 220, 220)') {
+		target.style.background = 'rgb(255,255,255)';
+	} else {
+		target.style.background = 'rgb(220,220,220)';
+	}
+	
+	if (target.innerHTML == 'mercury') {
+		if (mercuryColor == lineColor) {
+			mercuryColor = lineColorSelected;
+		} else {
+			mercuryColor = lineColor;
+		}
+	}
+	if (target.innerHTML == 'venus') {
+		if (venusColor == lineColor) {
+			venusColor = lineColorSelected;
+		} else {
+			venusColor = lineColor;
+		}
+	}
+	if (target.innerHTML == 'earth') {
+		if (earthColor == lineColor) {
+			earthColor = lineColorSelected;
+		} else {
+			earthColor = lineColor;
+		}
+	}
+	if (target.innerHTML == 'mars') {
+		if (marsColor == lineColor) {
+			marsColor = lineColorSelected;
+		} else {
+			marsColor = lineColor;
+		}
+	}
+	if (target.innerHTML == 'jupiter') {
+		if (jupiterColor == lineColor) {
+			jupiterColor = lineColorSelected;
+		} else {
+			jupiterColor = lineColor;
+		}
+	}
+	if (target.innerHTML == 'saturn') {
+		if (saturnColor == lineColor) {
+			saturnColor = lineColorSelected;
+		} else {
+			saturnColor = lineColor;
+		}
+	}
+	if (target.innerHTML == 'uranus') {
+		if (uranusColor == lineColor) {
+			uranusColor = lineColorSelected;
+		} else {
+			uranusColor = lineColor;
+		}
+	}
+	if (target.innerHTML == 'neptune') {
+		if (neptuneColor == lineColor) {
+			neptuneColor = lineColorSelected;
+		} else {
+			neptuneColor = lineColor;
+		}
+	}
+}
+panel.onclick = getPlanetOrbit;
 
 //sun
 function toDrawSun() {
@@ -28,7 +102,7 @@ function toDrawSun() {
 function toDrawOrbits() {
   //mercury
   ctx.lineWidth = 0.5;
-  ctx.strokeStyle = lineColor;
+  ctx.strokeStyle = mercuryColor;
   ctx.beginPath();
   ctx.save();
   ctx.scale(1, 0.37);
@@ -39,7 +113,7 @@ function toDrawOrbits() {
   
   //venus
   ctx.lineWidth = 0.5;
-  ctx.strokeStyle = lineColor;
+  ctx.strokeStyle = venusColor;
   ctx.beginPath();
   ctx.save();
   ctx.scale(1, 0.37);
@@ -50,7 +124,7 @@ function toDrawOrbits() {
   
   //earth
   ctx.lineWidth = 0.5;
-  ctx.strokeStyle = lineColor;
+  ctx.strokeStyle = earthColor;
   ctx.beginPath();
   ctx.save();
   ctx.scale(1, 0.37);
@@ -61,7 +135,7 @@ function toDrawOrbits() {
   
   //mars
   ctx.lineWidth = 0.5;
-  ctx.strokeStyle = lineColor;
+  ctx.strokeStyle = marsColor;
   ctx.beginPath();
   ctx.save();
   ctx.scale(1, 0.37);
@@ -72,7 +146,7 @@ function toDrawOrbits() {
  
   //jupiter
   ctx.lineWidth = 0.5;
-  ctx.strokeStyle = lineColor;
+  ctx.strokeStyle = jupiterColor;
   ctx.beginPath();
   ctx.save();
   ctx.scale(1, 0.37);
@@ -83,7 +157,7 @@ function toDrawOrbits() {
   
   //Saturn
   ctx.lineWidth = 0.5;
-  ctx.strokeStyle = lineColor;
+  ctx.strokeStyle = saturnColor;
   ctx.beginPath();
   ctx.save();
   ctx.scale(1, 0.37);
@@ -94,7 +168,7 @@ function toDrawOrbits() {
   
   //Uranus
   ctx.lineWidth = 0.5;
-  ctx.strokeStyle = lineColor;
+  ctx.strokeStyle = uranusColor;
   ctx.beginPath();
   ctx.save();
   ctx.scale(1, 0.37);
@@ -105,7 +179,7 @@ function toDrawOrbits() {
   
   //Neptune
   ctx.lineWidth = 0.5;
-  ctx.strokeStyle = lineColor;
+  ctx.strokeStyle = neptuneColor;
   ctx.beginPath();
   ctx.save();
   ctx.scale(1, 0.37);
@@ -275,7 +349,7 @@ var toDraw = setInterval(function draw() {
   u += s;
   x = radius * Math.sin(u);
   y = 190 * Math.cos(u);  //radius y
-  ctx.arc(canvas.width/2 + x,canvas.height/2 + y          ,6,0,360);
+  ctx.arc(canvas.width/2 + x,canvas.height/2 + y ,6,0,360);
   ctx.stroke();
   ctx.fill();
   ctx.closePath();
